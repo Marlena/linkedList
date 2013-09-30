@@ -27,17 +27,28 @@ describe("LinkedList", function() {
 
     });
 
-    it("will tell you how many ListNodes it contains", function(){
-       expect(myList.length).toEqual(0);
+    it ("can tell you the length of an empty list", function(){
+
+        expect(myList.length()).toEqual(0);
+    });
+
+    it ("can add a ListNode to an empty list", function(){
+
+        myList.add(new ListNode("blah"));
+        expect(myList.isEmpty()).toEqual(false);
+        expect(myList.length()).toEqual(1);
 
     });
 
-    it ("can have a ListNode added to it", function(){
-
-        myNode = new ListNode("blah");
-        myList.add(myNode);
-        expect(myList.length).toEqual(1);
+    it ("can add a ListNode to a non-empty list", function(){
+       myList.add(new ListNode("one"));
+       myList.add(new ListNode("two"));
+       //var lastNode = myList.last()
+       //expect(lastNode.get_data()).toEqual("two");
+       expect(myList.first.next.next.data).toEqual("two");
 
     });
+
+
 
 });

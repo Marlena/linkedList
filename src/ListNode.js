@@ -12,4 +12,20 @@ function ListNode (data){
     this.data = data; //could be generic data object or could be actual data
     this.next = null;
 
+    this.get_data = function (){
+        return this.data;
+    }
+
+    this.print = function (){
+        return this.data.toString();
+    }
+
+    this.setNext = function(aListNode){
+        this.next = aListNode;
+    }
+
+    this.getNext = function(){
+        return this.next;
+    }
+
 }
