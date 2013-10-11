@@ -6,49 +6,66 @@
  * To change this template use File | Settings | File Templates.
  */
 describe("LinkedList", function() {
-    var node;
 
+    beforeEach(function(){
+       myList = new LinkedList();
+    })
 
-    beforeEach(function() {
-
-        myList = new LinkedList;
-
-    });
-
-    it("has a reference to first", function(){
-
-        expect(myList.first).toBeNull();
-    });
-
-    it ("is empty if first points to null", function(){
-
-        myEmptyList = new LinkedList();
-        expect(myEmptyList.isEmpty()).toBe(true);
+    it ("has a size", function(){
+        expect(myList.size()).toBe(0);
 
     });
 
-    it ("can tell you the length of an empty list", function(){
+    it ("has a first item", function(){
 
-        expect(myList.length()).toEqual(0);
-    });
-
-    it ("can add a ListNode to an empty list", function(){
-
-        myList.add(new ListNode("blah"));
-        expect(myList.isEmpty()).toEqual(false);
-        expect(myList.length()).toEqual(1);
+        myList.add("one");
+        expect(myList.first()).toBe("one");
 
     });
 
-    it ("can add a ListNode to a non-empty list", function(){
-       myList.add(new ListNode("one"));
-       myList.add(new ListNode("two"));
-       //var lastNode = myList.last()
-       //expect(lastNode.get_data()).toEqual("two");
-       expect(myList.first.next.next.data).toEqual("two");
+    it ("will return null if the list is empty", function(){
+        expect(myList.first()).toBe(null);
 
     });
 
+    it ("can add an item to the list", function(){
+        myList.add("blah");
+        expect(myList.size()).toBe(1);
+        myList.add("sea shepherd");
+        expect(myList.size()).toBe(2);
 
+
+    });
+
+    it ("can say it contains a particular piece of data", function(){
+        expect(myList.contains("blah")).toBe(false);
+        myList.add("blah");
+        expect(myList.contains("blah")).toBe(true);
+    });
+
+    it ("can print an item in a specified location in the list", function(){
+        myList.add("velvet biker capelet");//5
+        myList.add("flesh colored chiffon blouse");//4
+        myList.add("deconstructed kilt");//3
+        myList.add("micro fishnet hosiery"); //2
+        myList.add("Doc Martens"); //1
+
+        expect(myList.itemAt(3)).toBe("deconstructed kilt");
+        expect(myList.itemAt(5)).toBe("velvet biker capelet");
+
+    });
+
+    it ("can print the list", function(){
+
+        expect(myList.print()).toBe("");
+        myList.add("lorikeets");
+        myList.add("wallabies");
+        myList.add("wombats");
+        myList.add("kangaroos");
+
+        expect(myList.print()).toBe("kangaroos, wombats, wallabies, lorikeets");
+
+
+    });
 
 });

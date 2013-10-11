@@ -8,7 +8,7 @@
 
 describe("ListNode", function(){
 
-
+/*
     var myNode;
 
     beforeEach(function (){
@@ -20,9 +20,15 @@ describe("ListNode", function(){
     });
 
     it ("has a reference to null", function (){
-       expect(myNode.next).toBeNull();
+       expect(myNode.getNext()).toBeNull();
 
     });
+
+    it("can get the next node in the list", function (){
+        expect(myList.isEmpty()).toBe(true);
+        myList.add(new ListNode("blah"));
+
+    })
 
     it ("can print numeric data", function(){
        myNode = new ListNode(42)
@@ -37,13 +43,14 @@ describe("ListNode", function(){
     it ("can set the node's next reference", function(){
        myNode = new ListNode(42);
 
-       var nextNode = new ListNode("blah");
        myNode.setNext(new ListNode("13"));
-       expect(myNode.next).toBeDefined();
-       expect(myNode.next.get_data()).toBe("13");
+       expect(myNode.getNext()).toBeDefined();
+       expect(myNode.getNext().getNext()).toBe("13");
+
+
     });
 
 
-
+*/
 
 });

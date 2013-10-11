@@ -9,7 +9,22 @@
 function LinkedList (){
     'use strict';
 
-    this.first = null;
+    var first = null;
+
+    this.add = function (item){
+
+        var node = {data:item, next:first};
+        first = node;
+
+    };
+
+    this.first = function (){
+
+     if (first === null){
+         return null;
+     }
+     return first.data;
+    };
 
     this.isEmpty = function () {
         if ((this.first) === null){
@@ -20,45 +35,71 @@ function LinkedList (){
         }
     };
 
-    this.add = function (listNode){
+    this.itemAt = function(loc){
+        var current = first;
+        var item = null;
 
-        //add a node to the front of the empty list
-        if (this.isEmpty()){
-            this.first = listNode;
+        for (var i = 0; i < (loc - 1); i++){
+            current = current.next;
         }
-        else{
-            //list is not empty so traverse to the end
-            var current = this.first;
-            while (current != null){
-                //add the node at the end where next is null
-                if (current.next == null){
-                    current.setNext(listNode);
-                    break;
-                }
-                current = next;
-            }
+        return current.data;
+    };
 
+    this.size = function(){
+
+        var size = 0;
+
+        var current = first;
+        while (current != null){
+            size++;
+            current = current.next;
+        }
+        return size;
+    };
+
+    this.contains = function(item){
+
+        var current = first;
+        var found = false;
+        while (current !=null){
+            if (current.data === item){
+                found = true;
+                return found;
+            }
+            current = current.next;
+        }
+        return found;
+    };
+
+
+
+    this.print = function(){
+        var listString = "";
+        if (first === null){
+            return listString;
+        }
+
+        var current = first;
+        while (current != null){
+            listString += current.data;
+            if (current.next != null){
+                listString += ", ";
+            }
+            current = current.next;
+
+        }
+        return listString;
+    };
+
+    this.traverse = function(){
+        var current = first;
+
+        while(current != null){
+
+            current = current.next;
         }
 
     };
 
-    this.length = function(){
-        var current = this.first;
-        var length = 0;
 
-        if (current == null){
-            return length;
-        }
-        else{
-            while (current != null){
-                length += 1;
-                current = current.next;
-            }
-            return length;
-        }
-
-
-    }
-
-}
-
+};
