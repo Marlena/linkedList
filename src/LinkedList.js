@@ -45,17 +45,7 @@ function LinkedList (){
         return current.data;
     };
 
-    this.size = function(){
 
-        var size = 0;
-
-        var current = first;
-        while (current != null){
-            size++;
-            current = current.next;
-        }
-        return size;
-    };
 
     this.contains = function(item){
 
@@ -71,7 +61,12 @@ function LinkedList (){
         return found;
     };
 
+    this.size = function(){
 
+        var size = 0;
+        this.traverse(function(){ size++; });
+        return size;
+    };
 
     this.print = function(){
         var listString = "";
@@ -91,11 +86,13 @@ function LinkedList (){
         return listString;
     };
 
-    this.traverse = function(){
+    this.traverse = function(myfunction){
         var current = first;
+        //stack overflow suggestion for handing the optional arg
+        //current = (typeof optionalArg === "undefined") ? "defaultValue" : optionalArg;
 
         while(current != null){
-
+            myfunction();
             current = current.next;
         }
 

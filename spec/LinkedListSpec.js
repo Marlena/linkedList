@@ -65,7 +65,8 @@ describe("LinkedList", function() {
 
         expect(myList.print()).toBe("kangaroos, wombats, wallabies, lorikeets");
 
-
     });
+
+
 
 });
