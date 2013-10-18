@@ -16,6 +16,7 @@ function LinkedList (){
         var node = {data:item, next:first};
         first = node;
 
+
     };
 
     this.first = function (){
@@ -46,7 +47,7 @@ function LinkedList (){
     };
 
 
-
+//rewrite to select
     this.contains = function(item){
 
         var current = first;
@@ -64,35 +65,24 @@ function LinkedList (){
     this.size = function(){
 
         var size = 0;
-        this.traverse(function(){ size++; });
+        this.each(function(){ size++; });
         return size;
     };
 
     this.print = function(){
-        var listString = "";
-        if (first === null){
-            return listString;
-        }
+        var items = [];
+        this.each(function(data){
+            items.push(data);
+        });
 
-        var current = first;
-        while (current != null){
-            listString += current.data;
-            if (current.next != null){
-                listString += ", ";
-            }
-            current = current.next;
-
-        }
-        return listString;
+        return items.join(', ');
     };
 
-    this.traverse = function(myfunction){
+    this.each = function(myfunction){
         var current = first;
-        //stack overflow suggestion for handing the optional arg
-        //current = (typeof optionalArg === "undefined") ? "defaultValue" : optionalArg;
 
         while(current != null){
-            myfunction();
+            myfunction(current.data);
             current = current.next;
         }
 
@@ -100,3 +90,7 @@ function LinkedList (){
 
 
 };
+
+//map
+//select
+//reduce

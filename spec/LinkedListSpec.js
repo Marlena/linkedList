@@ -67,6 +67,18 @@ describe("LinkedList", function() {
 
     });
 
+    it ("can access each item", function(){
+        myList.add("lorikeets");
+        myList.add("wallabies");
+        myList.add("wombats");
+        myList.add("kangaroos");
+        var items = [];
+        myList.each(function(data) {
+          items.push(data);
+        });
+        expect(items).toEqual(["kangaroos, wombats, wallabies, lorikeets"]);
+    });
+
 
 
 });
