@@ -76,8 +76,29 @@ describe("LinkedList", function() {
         myList.each(function(data) {
           items.push(data);
         });
-        expect(items).toEqual(["kangaroos, wombats, wallabies, lorikeets"]);
+        expect(items).toEqual(["kangaroos", "wombats", "wallabies", "lorikeets"]);
     });
+
+    it ("can tell how many times the each loop has executed", function(){
+
+        myList.add("lorikeets");
+        myList.add("wallabies");
+        myList.add("wombats");
+        myList.add("kangaroos");
+
+        var items = [];
+        var index = 0;
+
+        myList.each(function(data, index){
+            items.push(index);
+
+
+       });
+
+
+        expect(items).toEqual([0,1,2,3]);
+
+    })
 
 
 

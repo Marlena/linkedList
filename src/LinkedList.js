@@ -44,23 +44,16 @@ function LinkedList (){
             current = current.next;
         }
         return current.data;
+
+        this.each(function(data){
+
+        })
+
     };
 
 
-//rewrite to select
-    this.contains = function(item){
 
-        var current = first;
-        var found = false;
-        while (current !=null){
-            if (current.data === item){
-                found = true;
-                return found;
-            }
-            current = current.next;
-        }
-        return found;
-    };
+
 
     this.size = function(){
 
@@ -78,12 +71,29 @@ function LinkedList (){
         return items.join(', ');
     };
 
+    this.contains = function(item){
+
+        var found = false;
+
+        this.each(function(data){
+            if (data === item){
+                found = true;
+            }
+
+        })
+        return found;
+    };
+
     this.each = function(myfunction){
         var current = first;
+        var index = 0;
 
         while(current != null){
-            myfunction(current.data);
+            myfunction(current.data, index);
             current = current.next;
+            index++;
+
+
         }
 
     };
@@ -91,6 +101,7 @@ function LinkedList (){
 
 };
 
+//find
 //map
 //select
 //reduce
