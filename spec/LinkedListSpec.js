@@ -91,14 +91,41 @@ describe("LinkedList", function() {
 
         myList.each(function(data, index){
             items.push(index);
-
-
        });
 
-
         expect(items).toEqual([0,1,2,3]);
+    });
 
-    })
+//   it("can replace an item in the list", function(){
+//        myList.add("wallaby");
+//
+//        myList.replace("wallaby","kangaroo");
+//
+//
+//        expect(myList.print()).toBe("kangaroo");
+//    });
+
+
+   it ("can create a new list of values by processing " +
+       "each value in the list through a transformative function", function(){
+       //see underscore definition of map
+       //http://underscorejs.org/#map
+
+       myList.add("Hair Stylist");
+       myList.add("Banker");
+       myList.add("Social Worker");
+
+       var results = myList.map(function(data){
+           return data + ' drinks koolaid';
+       });
+
+       expect(results.print()).toEqual("Hair Stylist drinks koolaid, Banker drinks koolaid, Social Worker drinks koolaid");
+
+   });
+
+    it ("can use the index as part of the data", function (){
+
+    });
 
 
 

@@ -92,16 +92,30 @@ function LinkedList (){
             myfunction(current.data, index);
             current = current.next;
             index++;
-
-
         }
 
     };
 
 
+
+
+    this.map = function(myFunction){
+
+        var newList = new LinkedList;
+
+        this.each(function (data, index){
+          var newData =   myFunction(data, index);
+            newList.add(newData);
+
+        })
+
+        return newList;
+
+
+    };
+
 };
 
 //find
-//map
 //select
 //reduce
