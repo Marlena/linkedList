@@ -9,7 +9,7 @@ describe("LinkedList", function() {
 
     beforeEach(function(){
        myList = new LinkedList();
-    })
+    });
 
     it ("has a size", function(){
         expect(myList.size()).toBe(0);
@@ -124,8 +124,61 @@ describe("LinkedList", function() {
    });
 
     it ("can use the index as part of the data", function (){
+        //this is 555 because index
+
+       myList.add(3);
+       myList.add(4);
+       myList.add(5);
+
+       var results = myList.map(function(data, index){
+           return data + index;
+       });
+
+       expect(results.print()).toEqual('5, 5, 5');
 
     });
+
+    it ("can reduce results", function (){
+        /*reduce boils down a list of values into a single value.
+        Memo is the initial state of the reduction,
+        and each successive step of it should be returned by iterator.
+        The iterator is passed four arguments:
+        the memo, then the value and index (or key) of the iteration,
+        and finally a reference to the entire list.
+
+            var sum = _.reduce([1, 2, 3],
+            function(memo, num){
+                return memo + num; }, 0);
+
+                .reduce(myList, function(memo, num){
+        => 6*/
+
+        //http://ayende.com/blog/4435/map-reduce-a-visual-explanation
+            //input and output must be the same
+        //http://docs.mongodb.org/manual/core/map-reduce/
+
+
+        myList.add(5);
+        myList.add(13);
+        myList.add(20);
+
+        results = myList.reduce(myList, function(memo, num){
+            return a + b;
+        });
+
+        indexList = myList.each(function(index){
+            indexList.push(index);
+        });
+
+        expect(indexList.print()).toEqual('0, 1, 2');
+
+
+        expect(results.print()).toEqual('37');
+
+
+
+    });
+
 
 
 

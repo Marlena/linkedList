@@ -15,8 +15,6 @@ function LinkedList (){
 
         var node = {data:item, next:first};
         first = node;
-
-
     };
 
     this.first = function (){
@@ -48,15 +46,9 @@ function LinkedList (){
         this.each(function(data){
 
         })
-
     };
 
-
-
-
-
     this.size = function(){
-
         var size = 0;
         this.each(function(){ size++; });
         return size;
@@ -96,9 +88,6 @@ function LinkedList (){
 
     };
 
-
-
-
     this.map = function(myFunction){
 
         var newList = new LinkedList;
@@ -110,8 +99,13 @@ function LinkedList (){
         })
 
         return newList;
+    };
+
+    this.reduce = function(){
 
 
+
+    //return memo + num;
     };
 
 };
