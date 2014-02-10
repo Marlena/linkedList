@@ -1,4 +1,4 @@
 linkedList
 ==========
 
-a javascripty linked list
+a javascripty linked list.
